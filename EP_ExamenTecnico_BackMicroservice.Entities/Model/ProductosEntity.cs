@@ -27,8 +27,6 @@ namespace EP_Planning_BackMicroservice.Entities
 
         [DataMember(EmitDefaultValue = false)]
         public int CampoPrueba { get; set; }
-
-
     }
 }
 
