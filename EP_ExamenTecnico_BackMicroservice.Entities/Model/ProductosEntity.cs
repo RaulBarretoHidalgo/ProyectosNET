@@ -24,6 +24,11 @@ namespace EP_Planning_BackMicroservice.Entities
 
         [DataMember(EmitDefaultValue = false)]
         public decimal SalePrice { get; set; }
+
+        [DataMember(EmitDefaultValue = false)]
+        public int CampoPrueba { get; set; }
+
+
     }
 }
 
