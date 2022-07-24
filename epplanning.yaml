@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: epplanning
+  labels:
+    app: epplanning
+    #type: microservice
+spec:
+  containers:
+    - name: epplanning
+      image: ussplanningdevcontainer.azurecr.io/epplanningbackmicroserviceapi:v1
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 80
+  #imageRegistryCredentials:
+  #  - server: ussplanningcontainer.azurecr.io
+  #    username: USSPlanningContainer
+  #    password: Ic7PZ6x0pF9o6CSY7hv/nejOs9QcanEZ
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: epplanning
+  labels:
+    #name: epplanning
+    app: epplanning
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: epplanning
+      #type: microservice
+  template:
+    metadata:
+      #name: epplanning
+      labels:
+        app: epplanning
+        #type: microservice
+    spec:
+      containers:
+        - name: epplanning
+          image: ussplanningdevcontainer.azurecr.io/epplanningbackmicroserviceapi:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      #imageRegistryCredentials:
+      #  - server: ussplanningcontainer.azurecr.io
+      #    username: USSPlanningContainer
+      #    password: Ic7PZ6x0pF9o6CSY7hv/nejOs9QcanEZ
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: epplanning
+  #annotations:
+  #  service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+  #labels:
+  #  name: epplanning-service
+  #  app: microservice
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: epplanning
+    #type: microservice

@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Composition" Version="1.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EP_ExamenTecnico_BackMicroservice.Entities\EP_ExamenTecnico_BackMicroservice.Entities.csproj" />
+    <ProjectReference Include="..\EP_ExamenTecnico_BackMicroservice.Exceptions\EP_ExamenTecnico_BackMicroservice.Exceptions.csproj" />
+    <ProjectReference Include="..\EP_ExamenTecnico_BackMicroservice.Repository\EP_ExamenTecnico_BackMicroservice.Repository.csproj" />
+    <ProjectReference Include="..\Util\Util.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Integration.Conection">
+      <HintPath>..\EP_Planning_BackMicroservice.Service\Componentes\Integration.Conection.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
